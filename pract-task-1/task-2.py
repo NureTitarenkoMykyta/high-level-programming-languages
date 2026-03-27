@@ -1,8 +1,6 @@
-numbers_count = 3
-numbers = []
-while len(numbers) < numbers_count:
-    try:
-        numbers.append(int(input("Enter a number: ")))
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
-print(max(numbers))
+import math
+
+numbers = list(range(1, 21))
+
+for i in numbers:
+    print(f'{i}, {int(math.pow(i, 2))}')

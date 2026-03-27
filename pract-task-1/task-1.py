@@ -1,2 +1,2 @@
-for i in range(1, 11):
-    print(i)
+name = input("What is your name? ")
+print("Hello, " + name + "! Welcome to the world of programming!")
