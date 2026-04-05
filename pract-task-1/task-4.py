@@ -1,5 +1,6 @@
 import requests
 
-url = 'https://jsonplaceholder.typicode.com/posts/1'
+url = "https://jsonplaceholder.typicode.com/posts/1"
 response = requests.get(url)
-print(response.json())
+if response.status_code == 200:
+    print(response.json())

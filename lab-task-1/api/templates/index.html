@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Rates</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        nav { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        nav a { margin-right: 15px; text-decoration: none; font-weight: bold; color: #2c3e50; }
+        nav a:hover { color: #3498db; }
+        table { width: 60%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 2px 3px #ccc; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .form-container { 
+            margin-bottom: 40px; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px;
+            background-color: #fcfcfc;
+            max-width: 400px;
+        }
+        button { 
+            background-color: #27ae60; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'index' %}">Current Rates</a>
+        <a href="{% url 'history' %}">Daily Results (History)</a>
+    </nav>
+
+    <h2>Add New Rate</h2>
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Rate</button>
+        </form>
+    </div>
+
+    <h2>Latest Exchange Rates</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Buy Rate</th>
+                <th>Sell Rate</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for currency in currencies %}
+            <tr>
+                <td>{{ currency.name }}</td>
+                <td>{{ currency.buy_rate }}</td>
+                <td>{{ currency.sell_rate }}</td>
+                <td>{{ currency.created_at|date:"Y-m-d H:i" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No rates added yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

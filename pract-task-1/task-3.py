@@ -5,4 +5,5 @@ def get_even_numbers(numbers):
             even_numbers.append(number)
     return even_numbers
 
+
 print(get_even_numbers(range(1, 11)))

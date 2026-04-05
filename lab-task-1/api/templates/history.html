@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Historical Rates</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        nav { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        nav a { margin-right: 15px; text-decoration: none; font-weight: bold; color: #2c3e50; }
+        table { width: 70%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'index' %}">Current Rates</a>
+        <a href="{% url 'history' %}">Daily Results (History)</a>
+    </nav>
+
+    <h2>Historical Exchange Rates Archive</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Currency</th>
+                <th>Buy Rate</th>
+                <th>Sell Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rate in all_rates %}
+            <tr>
+                <td>{{ rate.created_at|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ rate.name }}</td>
+                <td>{{ rate.buy_rate }}</td>
+                <td>{{ rate.sell_rate }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No historical data found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
