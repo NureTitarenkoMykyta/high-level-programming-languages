@@ -1,0 +1,142 @@
+.player-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.video-section {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.video-element {
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+.video-header {
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.video-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.video-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.subscribe-btn, .share-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.subscribe-btn {
+  background: #ff0000;
+  color: #fff;
+}
+
+.subscribe-btn.active {
+  background: #eee;
+  color: #666;
+}
+
+.share-btn {
+  background: #eee;
+  color: #333;
+}
+
+.author-info {
+  padding: 10px 20px;
+  background: #fafafa;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.comments-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.comment-form textarea {
+  width: 100%;
+  height: 80px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  font-family: inherit;
+  margin-bottom: 10px;
+}
+
+.comment-form button {
+  background: #00d1ff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comments-list {
+  margin-top: 30px;
+}
+
+.comment-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.comment-meta strong {
+  color: #333;
+}
+
+.comment-meta span {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.delete-comment {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.comment-item p {
+  margin: 5px 0 0 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #888;
+}

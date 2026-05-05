@@ -1,0 +1,93 @@
+.admin-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.admin-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.admin-title {
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #f8f9fa;
+  padding: 15px;
+  color: #666;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+}
+
+.admin-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.role-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.role-badge.user { background: #e3f2fd; color: #1976d2; }
+.role-badge.moderator { background: #fff3e0; color: #f57c00; }
+.role-badge.admin { background: #fbe9e7; color: #d84315; }
+
+.role-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+.role-select:focus {
+  border-color: #00d1ff;
+}
+
+.delete-user-btn {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.delete-user-btn:hover {
+  background: #e60000;
+}
+
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 15px;
+  }
+  
+  .admin-table th, .admin-table td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
