@@ -1,0 +1,48 @@
+{
+  "store": {
+    "name": "TechHub Central",
+    "location": "Kyiv, Ukraine",
+    "status": "open"
+  },
+  "categories": ["Electronics", "Accessories", "Peripherals"],
+  "products": [
+    {
+      "id": 101,
+      "model": "Logitech MX Master 3S",
+      "specs": {
+        "sensor": "Darkfield",
+        "dpi": 8000,
+        "buttons": 7
+      },
+      "tags": ["office", "wireless", "ergonomic"],
+      "availability": {
+        "warehouse_A": 15,
+        "warehouse_B": 0
+      },
+      "discount": null
+    },
+    {
+      "id": 102,
+      "model": "Keychron K2 V2",
+      "specs": {
+        "switches": "Gateron Brown",
+        "backlight": "RGB",
+        "battery": "4000mAh"
+      },
+      "tags": ["mechanical", "bluetooth", "compact"],
+      "availability": {
+        "warehouse_A": 5,
+        "warehouse_B": 12
+      },
+      "discount": {
+        "percentage": 10,
+        "valid_until": "2026-12-31"
+      }
+    }
+  ],
+  "metadata": {
+    "generated_at": "2026-05-04T19:45:00Z",
+    "api_version": "v2.4",
+    "total_results": 2
+  }
+}

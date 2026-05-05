@@ -21,3 +21,9 @@ class CurrencyForm(forms.ModelForm):
         if rate is not None and rate < 0:
             raise forms.ValidationError("The rate cannot be negative")
         return rate
+    
+    def clean_sell_rate(self):
+        rate = self.cleaned_data.get('sell_rate')
+        if rate is not None and rate < 0:
+            raise forms.ValidationError("The sell rate cannot be negative")
+        return rate

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Visualizer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-jsonview@1.2.3/dist/jquery.jsonview.min.css">
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        textarea { width: 100%; height: 150px; margin-bottom: 10px; display: block; }
+        #json-collasped { margin-top: 20px; border: 1px solid #ddd; padding: 10px; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h3>Insert your JSON here:</h3>
+    <textarea id="json-input" placeholder='Example: {"name": "John", "age": 30}'></textarea>
+    <button id="render-btn">Visualize JSON</button>
+    
+    <div id="error-message" class="error"></div>
+
+    <hr>
+    <h3>Result:</h3>
+    <div id="json-collasped"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-jsonview@1.2.3/dist/jquery.jsonview.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#render-btn").on("click", function() {
+                const rawInput = $("#json-input").val();
+                const errorDiv = $("#error-message");
+                const displayDiv = $("#json-collasped");
+
+                errorDiv.text("");
+
+                try {
+                    const parsedData = JSON.parse(rawInput);
+                    displayDiv.JSONView(parsedData);
+                } catch (e) {
+                    displayDiv.empty();
+                    errorDiv.text("Error: Invalid JSON format. Please check quotes and commas.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

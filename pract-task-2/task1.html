@@ -1,0 +1,15 @@
+<p id="quote-text"></p>
+<script>
+    async function fetchQuote() {
+        try{
+            let response = await fetch('https://api.allorigins.win/raw?url=https://type.fit/api/quotes');
+            let quotes = await response.json();
+            let quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote-text').textContent = quote.text;
+        }
+        catch(error) {
+            console.error('Error fetching quote:', error);
+        }
+    }
+    fetchQuote();
+</script>
