@@ -161,7 +161,6 @@ public class CourseRepository(IMongoDatabase database) : Repository<Course>(data
             var lessonsFilter = Builders<Lesson>.Filter.Eq(l => l.CourseId, courseId);
             await lessonCollection.DeleteManyAsync(session, lessonsFilter);
         }
-        throw new AbandonedMutexException();
     }
     
     public async Task ValidateEntitiesExistAsync(List<string> studentIds, List<string> teacherIds, IClientSessionHandle session)
