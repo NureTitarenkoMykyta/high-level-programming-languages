@@ -100,4 +100,40 @@ router.get('/:filename', async (req, res) => {
   }
 });
 
+router.post('/:filename/like', authenticateToken, async (req, res) => {
+  try {
+    const { filename } = req.params;
+    const { username } = req.user; // From authenticateToken middleware
+
+    const video = await Video.findOneAndUpdate(
+      { filename },
+      { $addToSet: { likes: username } }, // Only adds if not already present
+      { new: true }
+    );
+
+    if (!video) return res.status(404).json({ error: "Video not found" });
+    res.json({ likesCount: video.likes.length, isLiked: true });
+  } catch (err) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+router.delete('/:filename/like', authenticateToken, async (req, res) => {
+  try {
+    const { filename } = req.params;
+    const { username } = req.user;
+
+    const video = await Video.findOneAndUpdate(
+      { filename },
+      { $pull: { likes: username } }, // Removes user from array
+      { new: true }
+    );
+
+    if (!video) return res.status(404).json({ error: "Video not found" });
+    res.json({ likesCount: video.likes.length, isLiked: false });
+  } catch (err) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 export default router;

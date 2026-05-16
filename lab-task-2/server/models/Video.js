@@ -4,6 +4,7 @@ const VideoSchema = new mongoose.Schema({
   filename: { type: String, unique: true, required: true },
   title: { type: String, required: true },
   username: { type: String, required: true },
+  likes: { type: [String], default: [] },
   createdAt: { type: Date, default: Date.now }
 });
 
